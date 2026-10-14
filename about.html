@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f5f8fc" />
+  <meta name="description" content="Get to know Sherytam Technology: our mission, vision, approach, and future directions." />
+  <title>About Us | Sherytam Technology</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --blue: #075bd8;
+      --blue-deep: #0b347d;
+      --blue-dark: #102744;
+      --blue-light: #dceaff;
+      --blue-pale: #edf4ff;
+      --white: #fff;
+      --muted: #52657f;
+      --line: #d9e5f5;
+      --shadow: 0 24px 70px rgba(20, 55, 100, .10);
+      --radius: 22px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--blue-pale);
+      color: var(--blue-dark);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+    }
+    a { color: inherit; text-decoration: none; }
+    .site-header {
+      position: relative;
+      z-index: 2;
+      background: rgba(255,255,255,.9);
+      border-bottom: 1px solid rgba(230,237,246,.9);
+      backdrop-filter: blur(14px);
+    }
+    .nav-wrap { width: min(1160px, calc(100% - 48px)); margin: auto; height: 78px; display: flex; align-items: center; justify-content: space-between; }
+    .brand { display: inline-flex; align-items: center; gap: 12px; font-size: 15px; font-weight: 750; letter-spacing: -.03em; }
+    .brand-mark { display: grid; place-items: center; overflow: hidden; width: 46px; height: 42px; }
+    .brand-mark img { display: block; width: 100%; height: 100%; object-fit: contain; mix-blend-mode: multiply; }
+    .nav-links { display: flex; align-items: center; gap: 23px; color: #53657c; font-size: 12px; font-weight: 600; }
+    .nav-links a { transition: color .2s ease; }
+    .nav-links a:hover, .nav-links a[aria-current="page"] { color: var(--blue); }
+    .nav-cta { padding: 11px 17px; color: #fff !important; background: var(--blue); border-radius: 10px; box-shadow: 0 7px 18px rgba(23,105,224,.19); }
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 84px 24px 92px;
+      background: linear-gradient(135deg, #f8fbff 0%, #edf4ff 55%, #e5efff 100%);
+      isolation: isolate;
+    }
+    .hero::before, .hero::after { content: ""; position: absolute; z-index: -1; border-radius: 50%; pointer-events: none; }
+    .hero::before { width: 510px; height: 510px; right: -125px; top: -285px; border: 1px solid rgba(23,105,224,.12); box-shadow: 0 0 0 45px rgba(23,105,224,.025), 0 0 0 95px rgba(23,105,224,.02); }
+    .hero::after { width: 310px; height: 310px; left: -210px; bottom: -205px; background: radial-gradient(circle, rgba(83,151,255,.13), transparent 70%); }
+    .hero-inner { width: min(900px, 100%); margin: auto; text-align: center; animation: rise .7s both; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 8px; color: var(--blue); text-transform: uppercase; letter-spacing: .15em; font-size: 10px; font-weight: 800; }
+    .eyebrow::before { content: ""; width: 20px; height: 2px; background: currentColor; border-radius: 2px; }
+    h1 { margin: 18px 0 18px; color: var(--blue-dark); font-size: clamp(40px, 6vw, 67px); line-height: 1.05; letter-spacing: -.055em; font-weight: 760; }
+    h1 span { color: var(--blue); }
+    .hero-copy { max-width: 650px; margin: auto; color: #62748b; font-size: clamp(15px, 2vw, 18px); line-height: 1.8; }
+    .hero-rule { width: 48px; height: 3px; margin: 28px auto 0; border-radius: 4px; background: linear-gradient(90deg, #77adff, var(--blue)); }
+    main { padding: 0 24px 92px; }
+    .content { width: min(900px, 100%); margin: -27px auto 0; position: relative; }
+    .intro-card { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 25px; padding: 28px 32px; margin-bottom: 18px; background: var(--white); border: 1px solid rgba(230,237,246,.85); border-radius: 18px; box-shadow: 0 14px 38px rgba(20,55,100,.06); animation: rise .7s .08s both; }
+    .intro-card p { margin: 0; color: #65758b; font-size: 14px; }
+    .intro-card strong { color: var(--blue-dark); }
+    .intro-icon { display: grid; place-items: center; width: 48px; height: 48px; border-radius: 15px; color: var(--blue); background: var(--blue-light); }
+    .intro-icon svg { width: 23px; height: 23px; }
+    .section-heading { margin: 40px 0 16px; display: flex; justify-content: space-between; align-items: end; gap: 20px; animation: rise .7s .12s both; }
+    .section-heading h2 { margin: 0; font-size: 20px; letter-spacing: -.035em; }
+    .section-heading p { margin: 0; color: #8492a5; font-size: 12px; }
+    .accordion { display: grid; gap: 12px; }
+    .accordion-item { overflow: hidden; background: var(--white); border: 1px solid var(--line); border-radius: 16px; box-shadow: 0 5px 18px rgba(21,55,97,.035); transition: border-color .25s, box-shadow .25s, transform .25s; animation: rise .55s both; }
+    .accordion-item:nth-child(1) { animation-delay: .14s; } .accordion-item:nth-child(2) { animation-delay: .20s; } .accordion-item:nth-child(3) { animation-delay: .26s; } .accordion-item:nth-child(4) { animation-delay: .32s; }
+    .accordion-item:hover { transform: translateY(-2px); box-shadow: 0 13px 30px rgba(21,55,97,.08); }
+    .accordion-item[open] { border-color: #c8dcfb; box-shadow: 0 12px 30px rgba(21,80,160,.08); }
+    .accordion-item summary { display: flex; align-items: center; gap: 17px; padding: 21px 23px; cursor: pointer; list-style: none; user-select: none; }
+    .accordion-item summary::-webkit-details-marker { display: none; }
+    .item-number { flex: none; display: grid; place-items: center; width: 42px; height: 42px; border-radius: 13px; color: var(--blue); background: var(--blue-light); font-size: 12px; font-weight: 800; transition: color .25s, background .25s, transform .25s; }
+    .accordion-item[open] .item-number { color: white; background: var(--blue); transform: rotate(-5deg); }
+    .item-title { flex: 1; }
+    .item-title strong { display: block; font-size: 15px; letter-spacing: -.015em; }
+    .item-title small { display: block; margin-top: 2px; color: #8795a8; font-size: 12px; }
+    .chevron { flex: none; display: grid; place-items: center; width: 30px; height: 30px; border: 1px solid var(--line); border-radius: 50%; color: #6d7d92; transition: transform .3s, color .3s, background .3s, border .3s; }
+    .chevron svg { width: 14px; height: 14px; }
+    .accordion-item[open] .chevron { transform: rotate(180deg); color: white; border-color: var(--blue); background: var(--blue); }
+    .item-content { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .35s ease; }
+    .accordion-item[open] .item-content { grid-template-rows: 1fr; }
+    .item-content-inner { overflow: hidden; }
+    .item-copy { margin: 0 23px 22px 82px; padding-top: 3px; border-top: 1px solid #eff3f8; color: #66778d; font-size: 13px; line-height: 1.8; }
+    .item-copy p { margin: 13px 0 0; }
+    .item-copy .highlight { color: #214c87; }
+    .values { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+    .values span { padding: 5px 10px; border-radius: 20px; color: #4d6f9b; background: #f1f6ff; font-size: 10px; font-weight: 650; }
+    .closing { margin-top: 25px; padding: 24px 28px; display: flex; align-items: center; justify-content: space-between; gap: 18px; color: #fff; border-radius: 18px; background: linear-gradient(110deg, #12396f, #1769e0); box-shadow: 0 13px 30px rgba(23,105,224,.17); animation: rise .7s .4s both; }
+    .closing p { margin: 0; color: rgba(255,255,255,.88); font-size: 13px; }
+    .closing strong { display: block; margin-bottom: 3px; color: white; font-size: 15px; }
+    .closing a { flex: none; padding: 10px 15px; color: #155ac3; background: white; border-radius: 9px; font-size: 12px; font-weight: 750; transition: transform .2s, box-shadow .2s; }
+    .closing a:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(0,0,0,.15); }
+    footer { padding: 24px; border-top: 1px solid var(--line); background: #fff; }
+    .footer-inner { width: min(1160px, 100%); margin: auto; display: flex; justify-content: space-between; gap: 16px; color: #8a97a8; font-size: 11px; }
+    .footer-inner strong { color: #53657c; }
+    @keyframes rise { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; } }
+    @media (max-width: 640px) {
+      .nav-wrap { width: min(100% - 32px, 1160px); height: auto; min-height: 68px; padding: 12px 0; flex-wrap: wrap; gap: 10px; }
+      .nav-links { gap: 12px; }
+      .nav-links { width: 100%; flex-wrap: wrap; font-size: 11px; }
+      .nav-cta { padding: 9px 12px; }
+      .hero { padding: 65px 20px 76px; }
+      main { padding: 0 16px 64px; }
+      .intro-card { padding: 21px; grid-template-columns: 1fr auto; }
+      .section-heading { align-items: start; flex-direction: column; gap: 4px; margin-top: 32px; }
+      .accordion-item summary { padding: 17px 15px; gap: 12px; }
+      .item-number { width: 38px; height: 38px; }
+      .item-title strong { font-size: 14px; }
+      .item-title small { font-size: 11px; }
+      .item-copy { margin: 0 16px 18px 65px; font-size: 12px; }
+      .closing { align-items: flex-start; flex-direction: column; padding: 22px; }
+      .footer-inner { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav-wrap" aria-label="Main navigation">
+      <a class="brand" href="#top" aria-label="Sherytam Technology home">
+        <span class="brand-mark"><img src="logo.jpeg" alt="Sherytam Technology logo" /></span>
+        <span>SHERYTAM <span style="color:#1769e0">TECHNOLOGY</span></span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="student-portal.html">Student Portal</a>
+        <a href="events.html">Events</a>
+        <a href="programs.html">Programs</a>
+        <a href="administration.html">Administration</a>
+        <a href="#top" aria-current="page">About Us</a>
+        <a class="nav-cta" href="conversation.html">Get in touch <span aria-hidden="true">↗</span></a>
+      </div>
+    </nav>
+  </header>
+  <section class="hero" id="top">
+    <div class="hero-inner">
+      <span class="eyebrow"></span>
+      <h1>Who we <br /><span>Are.</span></h1>
+      <p class="hero-copy">At Sherytam Technology, we believe the best technology does more than work. It makes life simpler, creates new possibilities, and helps people move forward with confidence.</p>
+      <div class="hero-rule" aria-hidden="true"></div>
+    </div>
+  </section>
+  <main>
+    <div class="content">
+      <div class="intro-card">
+        <p><strong>Built around people. Designed for what’s next.</strong><br />We bring thoughtful ideas and practical technology together to help businesses and communities thrive in a changing world.</p>
+        <span class="intro-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3.5 14.2 9.8l6.3 2.2-6.3 2.2-2.2 6.3-2.2-6.3-6.3-2.2 6.3-2.2L12 3.5Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="m19 3 .6 1.7L21.3 5.3l-1.7.6-.6 1.7-.6-1.7-1.7-.6 1.7-.6L19 3Z" fill="currentColor"/></svg></span>
+      </div>
+      <div class="section-heading">
+        <h2>What guides us</h2>
+      </div>
+      <section class="accordion" aria-label="About Sherytam Technology">
+        <details class="accordion-item" open>
+          <summary><span class="item-number">01</span><span class="item-title"><strong>Our mission</strong><small>Why we do what we do</small></span><span class="chevron" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none"><path d="m3.5 6 4.5 4 4.5-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span></summary>
+          <div class="item-content"><div class="item-content-inner"><div class="item-copy"><p>To provide practical technology solutions, transformative digital skills and innovative services that solve real-world challenges and empower individuals and institutions to thrive in a changing world.</p><div class="values"><span>People first</span><span>Practical innovation</span><span>Lasting impact</span></div></div></div></div>
+        </details>
+        <details class="accordion-item">
+          <summary><span class="item-number">02</span><span class="item-title"><strong>Our vision</strong><small>The future we’re working toward</small></span><span class="chevron" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none"><path d="m3.5 6 4.5 4 4.5-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span></summary>
+          <div class="item-content"><div class="item-content-inner"><div class="item-copy"><p> To shape the future through technology, knowledge and innovation,transforming communities.</p><div class="values"><span>Connected communities</span><span>Inclusive progress</span><span>Technology for good</span></div></div></div></div>
+        </details>
+        <details class="accordion-item" id="our-approach">
+          <summary><span class="item-number">03</span><span class="item-title"><strong>Our approach</strong><small>How we turn ideas into impact</small></span><span class="chevron" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none"><path d="m3.5 6 4.5 4 4.5-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span></summary>
+          <div class="item-content"><div class="item-content-inner"><div class="item-copy"><p> We begin by Understanding the challenge, then develop practical,appropriate and sustainable technology solutions that create meaningful values.</p><div class="values"><span>identify</span> <span> Understand</span><span>design</span><span>Implement</span> <span>improve</span></div></div></div></div>
+        </details>
+        <details class="accordion-item">
+          <summary><span class="item-number">04</span><span class="item-title"><strong>Our future directions</strong><small>Where we’re headed next</small></span><span class="chevron" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none"><path d="m3.5 6 4.5 4 4.5-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span></summary>
+          <div class="item-content"><div class="item-content-inner"><div class="item-copy"><p>Sherytam is evolving toward a broader technology and skills solutions company, with future opportunities in vocational skills, youth emplowerment, digital administration and other technology-enabled solutions.</p><div class="values"><span> Our solutions are Designed around real needs-not simply around technology.</span></div></div></div></div>
+        </details>
+      </section>
+      <aside class="closing">
+        <p><strong>Let’s build something meaningful.</strong>Have a challenge in mind? We’d love to hear about it.</p>
+        <a href="conversation.html">Start a conversation <span aria-hidden="true">↗</span></a>
+      </aside>
+    </div>
+  </main>
+  <footer><div class="footer-inner"><span><strong>SHERYTAM TECHNOLOGY</strong> · Ideas into impact.</span><span>© <span id="year">2026</span> Sherytam Technology. All rights reserved.</span></div></footer>
+  <script>
+    // Keep the dropdown behavior familiar: opening one section closes the others.
+    const sections = document.querySelectorAll('.accordion-item');
+    sections.forEach((section) => {
+      section.addEventListener('toggle', () => {
+        if (section.open) sections.forEach((other) => { if (other !== section) other.open = false; });
+      });
+    });
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
