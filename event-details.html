@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Event Details | Sherytam Technology</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>tailwind.config={theme:{extend:{fontFamily:{sans:['Inter','ui-sans-serif','system-ui'],display:['Poppins','sans-serif']},colors:{brand:{50:'#eff7ff',100:'#d9edff',500:'#1677f9',600:'#075bd7',700:'#0646ac',900:'#082d67'}}}}}</script>
+</head>
+<body class="min-h-screen bg-[#f4f8ff] text-slate-900">
+  <header class="border-b border-slate-200 bg-white">
+    <div class="mx-auto flex max-w-6xl items-center justify-between px-5 py-4 sm:px-8">
+      <a href="index.html" class="flex items-center gap-2.5" aria-label="Sherytam Technology home"><img src="sherytam-logo-transparent.png" alt="Sherytam Technology logo" class="h-14 w-14 object-contain"><span class="leading-tight"><span class="block font-bold tracking-tight">SHERYTAM</span><span class="block text-[10px] font-semibold tracking-[.22em] text-brand-600">TECHNOLOGY</span></span></a>
+      <a href="index.html#events" class="text-sm font-semibold text-brand-600 hover:text-brand-700">← All events</a>
+    </div>
+  </header>
+
+  <main class="mx-auto max-w-6xl px-5 py-12 sm:px-8 lg:py-16">
+    <section class="rounded-2xl bg-brand-900 px-6 py-10 text-white shadow-xl shadow-blue-950/20 sm:px-10">
+      <p class="text-sm font-bold uppercase tracking-[.16em] text-blue-200">Event details</p>
+      <h1 id="event-title" class="mt-3 font-display text-4xl font-bold tracking-tight sm:text-5xl">Your event</h1>
+      <p id="event-summary" class="mt-4 max-w-2xl leading-7 text-slate-200"></p>
+      <a id="register-link" href="register.html" class="mt-7 inline-flex rounded-lg bg-white px-6 py-3 text-sm font-bold text-brand-700 shadow-lg transition hover:-translate-y-0.5 hover:bg-blue-50">Register Now</a>
+      <div class="mt-8 grid gap-4 text-sm sm:grid-cols-3"><div class="rounded-xl border border-white/15 bg-white/10 p-4"><p class="text-xs font-semibold uppercase tracking-wider text-blue-200">Date</p><p id="event-date" class="mt-1 font-semibold"></p></div><div class="rounded-xl border border-white/15 bg-white/10 p-4"><p class="text-xs font-semibold uppercase tracking-wider text-blue-200">Time</p><p id="event-time" class="mt-1 font-semibold"></p></div><div class="rounded-xl border border-white/15 bg-white/10 p-4"><p class="text-xs font-semibold uppercase tracking-wider text-blue-200">Venue</p><p id="event-venue" class="mt-1 font-semibold"></p></div></div>
+    </section>
+
+    <section class="mt-12 grid gap-10 lg:grid-cols-[1.45fr_.55fr]">
+      <div><p class="text-sm font-bold uppercase tracking-[.16em] text-brand-600">Programme</p><h2 class="mt-2 font-display text-3xl font-bold tracking-tight">Your day at a glance</h2><div id="programme" class="mt-7 space-y-4"></div></div>
+      <aside class="h-fit rounded-2xl border border-slate-200 bg-white p-6 shadow-sm"><h2 class="font-display text-xl font-bold">Before you arrive</h2><ul class="mt-4 space-y-3 text-sm leading-6 text-slate-600"><li>Arrive 15 minutes before the start time for check-in.</li><li>Keep this page handy as your event reference.</li><li>Questions? Email <a class="font-semibold text-brand-600 hover:text-brand-700" href="mailto:events@sherytam.com">events@sherytam.com</a>.</li></ul><a href="index.html#events" class="mt-6 inline-flex rounded-lg bg-brand-600 px-4 py-2.5 text-sm font-semibold text-white hover:bg-brand-700">Explore more events</a></aside>
+    </section>
+  </main>
+
+  <script>
+    const events = {
+      'Future-Ready Careers in Tech — Oct 24, 2026': { title: 'Future-Ready Careers in Tech', date: 'Saturday, October 24, 2026', time: '10:00 AM – 1:00 PM', venue: 'Lusaka Campus', summary: 'Meet industry leaders and explore the technology roles and skills shaping tomorrow.', programme: [['9:30 AM','Registration and networking'],['10:00 AM','Welcome and opening remarks'],['10:20 AM','Keynote: The future of work in technology'],['11:00 AM','Industry panel and audience questions'],['11:45 AM','Career pathways workshop'],['12:30 PM','Networking and close']] },
+      'AI & Machine Learning Workshop — Nov 5, 2026': { title: 'AI & Machine Learning Workshop', date: 'Thursday, November 5, 2026', time: '9:00 AM – 12:30 PM', venue: 'Innovation Lab', summary: 'Build practical machine-learning skills in a guided, beginner-friendly workshop.', programme: [['8:30 AM','Check-in and setup'],['9:00 AM','Welcome and AI foundations'],['9:30 AM','Hands-on: Preparing your data'],['10:30 AM','Break'],['10:45 AM','Hands-on: Building your first model'],['11:45 AM','Testing, questions and next steps'],['12:30 PM','Close']] },
+      'Designing Your Digital Future — Nov 14, 2026': { title: 'Designing Your Digital Future', date: 'Saturday, November 14, 2026', time: '2:00 PM – 4:30 PM', venue: 'Online · Live', summary: 'Turn your ideas into a stronger digital portfolio with insight from working designers.', programme: [['1:45 PM','Join the live session'],['2:00 PM','Welcome and design trends'],['2:25 PM','Building a standout portfolio'],['3:05 PM','Break'],['3:15 PM','Portfolio reviews: live examples'],['4:00 PM','Questions and action plan'],['4:30 PM','Close']] },
+      'Cybersecurity Essentials — Nov 21, 2026': { title: 'Cybersecurity Essentials', date: 'Saturday, November 21, 2026', time: '11:00 AM – 2:00 PM', venue: 'Tech Hub, Lusaka', summary: 'Learn practical ways to protect your data and understand today’s security risks.', programme: [['10:30 AM','Registration'],['11:00 AM','Cybersecurity fundamentals'],['11:35 AM','Protecting your accounts and devices'],['12:15 PM','Break'],['12:30 PM','Recognising scams and threats'],['1:10 PM','Interactive security challenge'],['1:45 PM','Questions and close']] },
+      'Tech Founders & Innovation Forum — Dec 3, 2026': { title: 'Tech Founders & Innovation Forum', date: 'Thursday, December 3, 2026', time: '1:00 PM – 4:30 PM', venue: 'Sherytam Auditorium', summary: 'Connect with founders and discover how ideas grow into sustainable technology ventures.', programme: [['12:30 PM','Registration and welcome networking'],['1:00 PM','Opening address'],['1:20 PM','Founder stories: From idea to launch'],['2:15 PM','Panel: Funding and growth'],['3:00 PM','Break'],['3:15 PM','Pitch clinic and audience questions'],['4:15 PM','Networking and close']] },
+      'Web Development Bootcamp — Dec 12, 2026': { title: 'Web Development Bootcamp', date: 'Saturday, December 12, 2026', time: '9:30 AM – 1:00 PM', venue: 'Innovation Lab', summary: 'Create a responsive website from scratch with guided support from our software team.', programme: [['9:00 AM','Check-in and environment setup'],['9:30 AM','HTML and page structure'],['10:15 AM','Styling with CSS'],['11:00 AM','Break'],['11:15 AM','Responsive layouts'],['12:00 PM','Build challenge and feedback'],['12:45 PM','Next steps and close']] }
+    };
+    const selected = new URLSearchParams(window.location.search).get('event');
+    const event = events[selected] || events['Future-Ready Careers in Tech — Oct 24, 2026'];
+    document.title = `${event.title} | Sherytam Technology`;
+    document.getElementById('event-title').textContent = event.title;
+    document.getElementById('event-summary').textContent = event.summary;
+    document.getElementById('event-date').textContent = event.date;
+    document.getElementById('event-time').textContent = event.time;
+    document.getElementById('event-venue').textContent = event.venue;
+    if (selected) document.getElementById('register-link').href = `register.html?event=${encodeURIComponent(selected)}`;
+    document.getElementById('programme').innerHTML = event.programme.map(([time, activity]) => `<div class="flex gap-5 rounded-xl border border-slate-200 bg-white p-5 shadow-sm"><time class="w-20 shrink-0 text-sm font-bold text-brand-600">${time}</time><p class="text-sm font-medium text-slate-700">${activity}</p></div>`).join('');
+  </script>
+</body>
+</html>
